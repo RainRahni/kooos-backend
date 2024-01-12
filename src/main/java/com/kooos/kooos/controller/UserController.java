@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RequiredArgsConstructor
 public class UserController {
     private final UserServiceImpl userServiceImpl;
-    @GetMapping("/nextMeal/{id}")
+    @GetMapping("/nextMeal/{id}/{")
     public Meal getNextMeal(@PathVariable("id") Long id) {
         return userServiceImpl.getNextMeal(id);
     }

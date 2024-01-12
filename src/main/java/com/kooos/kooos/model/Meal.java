@@ -2,6 +2,7 @@ package com.kooos.kooos.model;
 
 import com.kooos.kooos.model.type.MealType;
 import jakarta.persistence.CascadeType;
+import jakarta.persistence.Embedded;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
@@ -32,11 +33,10 @@ public class Meal {
     private String name;
     @Enumerated(EnumType.STRING)
     private MealType type;
-    private int calories;
-    private int protein;
-    private int carbs;
-    private int fat;
+    @Embedded
+    private Nutrition nutrition;
     private String startTime;
+    private String day;
     @ManyToMany(
              cascade = {
                      CascadeType.ALL
