@@ -29,5 +29,6 @@ public class Training {
     @ManyToOne
     @JoinColumn(name = "type")
     private TrainingType type;
+    private Schedule schedule;
     private String duration; //00:00:00 - hours:minutes:seconds
 }

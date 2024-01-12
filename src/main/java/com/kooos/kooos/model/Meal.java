@@ -33,10 +33,8 @@ public class Meal {
     private String name;
     @Enumerated(EnumType.STRING)
     private MealType type;
-    @Embedded
     private Nutrition nutrition;
-    private String startTime;
-    private String day;
+    private Schedule schedule;
     @ManyToMany(
              cascade = {
                      CascadeType.ALL
