@@ -1,9 +1,12 @@
 package com.kooos.kooos.model;
 
+import com.kooos.kooos.model.type.TrainingType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -23,8 +26,8 @@ public class Training {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
-    //TODO: SAME as with meal, decide whether to use type as enum or store in database.
-    private String type;
-    private int durationInMinutes;
-    private int durationInSeconds;
+    @ManyToOne
+    @JoinColumn(name = "type")
+    private TrainingType type;
+    private String duration; //00:00:00 - hours:minutes:seconds
 }

@@ -8,4 +8,5 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("food")
 @RequiredArgsConstructor
 public class FoodController {
+
 }

@@ -1,7 +1,10 @@
 package com.kooos.kooos.model;
 
+import com.kooos.kooos.model.type.MealType;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -27,13 +30,14 @@ public class Meal {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
-    //TODO: decide whether the type should be enum or in database.
-    private String mealType;
+    @Enumerated(EnumType.STRING)
+    private MealType type;
     private int calories;
     private int protein;
     private int carbs;
     private int fat;
-     @ManyToMany(
+    private String startTime;
+    @ManyToMany(
              cascade = {
                      CascadeType.ALL
              })
