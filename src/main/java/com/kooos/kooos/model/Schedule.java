@@ -6,10 +6,10 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @NoArgsConstructor
-@Embeddable
 @Getter
 @Setter
+@Embeddable
 public class Schedule {
-    private String startTime;
+    private String dayTime;
     private String day;
 }

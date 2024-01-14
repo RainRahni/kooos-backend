@@ -1,5 +1,6 @@
 package com.kooos.kooos.model;
 
+import com.kooos.kooos.dto.ScheduleDTO;
 import com.kooos.kooos.model.type.TrainingType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;

@@ -1,8 +1,8 @@
 package com.kooos.kooos.model;
 
+import com.kooos.kooos.dto.ScheduleDTO;
 import com.kooos.kooos.model.type.MealType;
 import jakarta.persistence.CascadeType;
-import jakarta.persistence.Embedded;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
