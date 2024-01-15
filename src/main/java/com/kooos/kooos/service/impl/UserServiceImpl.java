@@ -14,11 +14,5 @@ import org.springframework.stereotype.Service;
 @RequiredArgsConstructor
 public class UserServiceImpl implements UserService {
     private final UserRepository userRepository;
-    @Override
-    public Meal getNextMeal(Long id, ScheduleDTO schedule) {
-        //TODO add so that this is only accessible for registered users.
-        User user = userRepository.findById(id).orElseThrow(() -> new BadRequestException("No user with this id"));
-        //TODO: HOW TO get all meals that are this user`s and are after a specific time in the same day.
-        return null;
-    }
+
 }

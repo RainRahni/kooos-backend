@@ -14,4 +14,9 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("meal")
 @RequiredArgsConstructor
 public class MealController {
+    private final MealServiceImpl mealService;
+    @GetMapping("/nextMeal/{id}/{")
+    public Meal getNextMeal(@PathVariable("id") Long id, @RequestBody ScheduleDTO scheduleDTO) {
+        return mealService.getNextMeal(id, scheduleDTO);
+    }
 }
