@@ -29,6 +29,9 @@ public class Training implements Schedulable {
     private Long id;
     private String name;
     @ManyToOne
+    @JoinColumn(name="user_id")
+    private User user;
+    @ManyToOne
     @JoinColumn(name = "type")
     private TrainingType type;
     private Schedule schedule;

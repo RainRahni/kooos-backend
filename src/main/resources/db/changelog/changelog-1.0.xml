@@ -31,6 +31,10 @@
             <column autoIncrement="true" name="id" startWith="1" type="INTEGER">
                 <constraints nullable="false" primaryKey="true" primaryKeyName="trainings_pkey"/>
             </column>
+            <column name="user_id" type="INTEGER">
+                <constraints nullable="false" foreignKeyName="fk_users"
+                             referencedTableName="users" referencedColumnNames="id"/>
+            </column>
             <column name="name" type="VARCHAR(255)">
                 <constraints nullable="false"/>
             </column>
