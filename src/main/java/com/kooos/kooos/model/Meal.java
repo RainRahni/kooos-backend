@@ -1,6 +1,7 @@
 package com.kooos.kooos.model;
 
 import com.kooos.kooos.dto.ScheduleDTO;
+import com.kooos.kooos.model.scheduled.Schedulable;
 import com.kooos.kooos.model.type.MealType;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
@@ -28,7 +29,7 @@ import java.util.List;
 @AllArgsConstructor
 @Builder
 @Table(name = "meals")
-public class Meal {
+public class Meal implements Schedulable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;

@@ -17,6 +17,6 @@ public class MealController {
     private final MealServiceImpl mealService;
     @GetMapping("/nextMeal/{id}/{")
     public Meal getNextMeal(@PathVariable("id") Long id, @RequestBody ScheduleDTO scheduleDTO) {
-        return mealService.getNextMeal(id, scheduleDTO);
+        return mealService.getNextItem(id, scheduleDTO);
     }
 }

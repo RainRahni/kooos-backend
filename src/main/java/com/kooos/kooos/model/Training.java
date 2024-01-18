@@ -1,6 +1,7 @@
 package com.kooos.kooos.model;
 
 import com.kooos.kooos.dto.ScheduleDTO;
+import com.kooos.kooos.model.scheduled.Schedulable;
 import com.kooos.kooos.model.type.TrainingType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -22,7 +23,7 @@ import lombok.Setter;
 @AllArgsConstructor
 @Builder
 @Table(name = "trainings")
-public class Training {
+public class Training implements Schedulable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;

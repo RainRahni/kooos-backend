@@ -1,6 +1,7 @@
 package com.kooos.kooos.service.impl;
 
 import com.kooos.kooos.dto.ScheduleDTO;
+import com.kooos.kooos.exception.BadRequestException;
 import com.kooos.kooos.model.Meal;
 import com.kooos.kooos.model.Schedule;
 import com.kooos.kooos.model.User;
@@ -12,9 +13,9 @@ import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.util.List;
-import java.util.Optional;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.BDDMockito.given;
 import static org.mockito.BDDMockito.then;
 
@@ -38,10 +39,21 @@ class MealServiceImplTest {
         given(mealRepository.findByUserIdAndScheduleDay(1L, "Monday"))
                 .willReturn((List.of(breakfast, dinner)));
 
-        var actual = mealService.getNextMeal(1L, schedule1);
+        var actual = mealService.getNextItem(1L, schedule1);
 
         then(mealRepository).should().findByUserIdAndScheduleDay(1L, schedule1.day());
         assertEquals(dinner, actual);
+    }
+    @Test
+    void Given_UserIdAndSchedule_When_NoMealsInDatabase_Then_ThrowException() {
+        Long userId = 1L;
+        ScheduleDTO schedule1 = ScheduleDTO.builder().day("Monday").dayTime("02:00PM").build();
+
+        given(mealRepository.findByUserIdAndScheduleDay(1L, "Monday"))
+                .willThrow(BadRequestException.class);
+        assertThrows(BadRequestException.class, () -> mealService.getNextItem(userId, schedule1));
+
+        then(mealRepository).should().findByUserIdAndScheduleDay(userId, schedule1.day());
     }
 
 }

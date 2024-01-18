@@ -6,6 +6,5 @@ import com.kooos.kooos.model.Schedule;
 import org.springframework.stereotype.Service;
 
 @Service
-public interface MealService {
-    Meal getNextMeal(Long id, ScheduleDTO scheduleDTO);
+public interface MealService extends BaseService<Meal>{
 }
